@@ -1,15 +1,15 @@
-function App() {
-  const get = async () => {
-    const res = fetch("http://localhost:8000");
-    console.log(res);
-  };
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/login";
+import Profile from "./pages/profile";
+import Home from "./pages/home";
 
-  get();
+function App() {
   return (
-    <div>
-      welcome to frontend
-      <div className="trash_icon"> </div>
-    </div>
+    <Routes>
+      <Route path="/login" element={<Login />} exact />
+      <Route path="/profile" element={<Profile />} exact />
+      <Route path="/home" element={<Home />} exact />
+    </Routes>
   );
 }
 
