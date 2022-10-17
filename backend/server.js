@@ -1,16 +1,18 @@
 const express = require("express");
+const cors = require("cors");
 const consolColor = require("chalk");
 const mongoose = require("mongoose");
-const cors = require("cors");
 const { readdirSync } = require("fs");
 const { options } = require("./routes-options");
 const dotenv = require("dotenv");
 
+//env
 dotenv.config();
 
 //Create Server
 const app = express();
 
+//Support Json
 app.use(express.json());
 
 //Implement CORS
