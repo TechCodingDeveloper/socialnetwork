@@ -11,6 +11,8 @@ dotenv.config();
 //Create Server
 const app = express();
 
+app.use(express.json());
+
 //Implement CORS
 app.use(cors(options));
 
