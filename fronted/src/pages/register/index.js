@@ -1,7 +1,7 @@
 import "./style.scss";
-import LoginForm from "../../components/login/LoginForm";
 import LoginHead from "./../../components/login/LoginHead";
-export default function Login() {
+import RegisterForm from "./../../components/login/RegisterForm";
+export default function Register() {
   return (
     <div className="login">
       <div className="login_wrapper">
@@ -10,7 +10,7 @@ export default function Login() {
             <LoginHead />
           </div>
           <div className="login_wrapper_wrap_body">
-            <LoginForm />
+            <RegisterForm />
           </div>
         </div>
       </div>
