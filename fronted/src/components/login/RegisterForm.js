@@ -104,6 +104,20 @@ export default function RegisterForm() {
                   </label>
                 </div>
               </div>
+
+              <div className="login_wrapper_wrap_body_form_register_line_register">
+                <div className="login_wrapper_wrap_body_form_register_line_register_head">
+                  <p>
+                    We make it easy, fast and affordable to send SMS marketing
+                    campaigns or engage in 1-on-1 conversations with customers.
+                  </p>
+                </div>
+                <div className="login_wrapper_wrap_body_form_register_line_register_body">
+                  <div className="login_wrapper_wrap_body_form_register_line_register_body_btn">
+                    <button className="btn_blue">Register</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </Form>
         )}
