@@ -27,7 +27,11 @@ export default function RegisterForm() {
     gender,
   } = user;
 
-  const years = Array.from(new Array(100), (val, index) => bYear - index);
+  let date = new Date();
+  const years = Array.from(
+    new Array(100),
+    (val, index) => date.getFullYear() - index
+  );
   const months = Array.from(new Array(12), (val, index) => 1 + index);
   const getDays = () => new Date(bYear, bMonth, 0).getDate();
   const days = Array.from(new Array(getDays()), (val, index) => 1 + index);
@@ -62,6 +66,9 @@ export default function RegisterForm() {
       .min(6, "Passwrod must be at least 2 characters"),
   });
 
+  const [dateError, setDateError] = useState("");
+  const [genderError, setGenderError] = useState("");
+
   return (
     <div className="login_wrapper_wrap_body_form">
       <Formik
@@ -77,6 +84,25 @@ export default function RegisterForm() {
           gender,
         }}
         validationSchema={registervalidation}
+        onSubmit={() => {
+          let current_data = new Date();
+          let picked_date = new Date(bYear, bMonth - 1, bDay);
+          let atleastThan14 = new Date(1970 + 14, 0, 1);
+          let noMoreThan70 = new Date(1970 + 70, 0, 1);
+          if (current_data - picked_date < atleastThan14) {
+            setDateError("under age you  are not 14");
+          } else if (current_data - picked_date > noMoreThan70) {
+            setDateError("you are more than 70");
+          } else {
+            setDateError("");
+          }
+
+          if (gender === "") {
+            setGenderError("please fill gender Error");
+          } else {
+            setGenderError("");
+          }
+        }}
       >
         {(formik) => (
           <Form className="login_wrapper_wrap_body_form_register">
@@ -140,6 +166,7 @@ export default function RegisterForm() {
                     ))}
                   </select>
                 </div>
+                {dateError && <div className="input_error">{dateError}</div>}
               </div>
               <div className="login_wrapper_wrap_body_form_register_line_col">
                 <div className="login_wrapper_wrap_body_form_register_line_col_header">
@@ -177,6 +204,9 @@ export default function RegisterForm() {
                     />
                   </label>
                 </div>
+                {genderError && (
+                  <div className="input_error">{genderError}</div>
+                )}
               </div>
 
               <div className="login_wrapper_wrap_body_form_register_line_register">
