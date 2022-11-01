@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/header/Header";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -10,5 +11,9 @@ export default function Home() {
     }, 10);
   }
 
-  return <div>Home</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }

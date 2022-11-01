@@ -69,3 +69,11 @@ a {
 .register {
   height: 100vh;
 }
+
+.hover1:hover {
+  background: var(--bg-secondary);
+}
+
+.hover2:hover {
+  background: var(--bg-third);
+}
