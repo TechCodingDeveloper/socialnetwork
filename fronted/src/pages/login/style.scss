@@ -46,6 +46,11 @@
           font-size: 17px;
           font-weight: 700;
           user-select: none;
+          position: relative;
+          & span {
+            position: absolute;
+            right: 10px;
+          }
         }
 
         &_forgot_password {
@@ -89,4 +94,23 @@
       padding: 0 2rem;
     }
   }
+}
+
+.input_error {
+  position: relative;
+  padding: 15px 10px;
+  width: 100%;
+  color: white;
+  font-size: 13px;
+  background-color: #b94a48;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.error_text {
+  color: #b94a48;
+}
+
+.success_text {
+  color: green;
 }

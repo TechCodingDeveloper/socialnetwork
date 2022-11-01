@@ -135,6 +135,13 @@
               }
               &_body {
                 &_btn {
+                  position: relative;
+                  span {
+                    position: absolute;
+                    top: 15px;
+                    right: 20px;
+                    color: white;
+                  }
                 }
               }
             }
@@ -174,4 +181,12 @@
   background-color: #b94a48;
   border-radius: 5px;
   margin-bottom: 12px;
+}
+
+.error_text {
+  color: #b94a48;
+}
+
+.success_text {
+  color: green;
 }

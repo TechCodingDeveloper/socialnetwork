@@ -2,7 +2,17 @@ import { Form, Formik } from "formik";
 import RegisterInput from "../inputs/registerInput";
 import { useState } from "react";
 import * as Yup from "yup";
+import DateOfBirthSelect from "./DateOfBirthSelect";
+import GenderSelect from "./GenderSelect";
+import ClipLoader from "react-spinners/ClipLoader";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+
 export default function RegisterForm() {
+  const navigate = useNavigate();
+
   const userInfos = {
     first_name: "",
     last_name: "",
@@ -27,44 +37,102 @@ export default function RegisterForm() {
     gender,
   } = user;
 
-  let date = new Date();
-  const years = Array.from(
-    new Array(100),
-    (val, index) => date.getFullYear() - index
-  );
-  const months = Array.from(new Array(12), (val, index) => 1 + index);
-  const getDays = () => new Date(bYear, bMonth, 0).getDate();
-  const days = Array.from(new Array(getDays()), (val, index) => 1 + index);
-
   const handlRegisterChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
 
-  const registervalidation = Yup.object({
-    first_name: Yup.string()
-      .required("First Name is required.")
-      .min(2, "First Name must be at least 2 characters")
-      .max(30, "First Name must be at most 30 characters")
-      .matches(
-        /^[aA-zZ]+$/,
-        "First Name and special characters are not allowed."
-      ),
-    last_name: Yup.string()
-      .required("Last Name is required.")
-      .min(2, "Last Name must be at least 2 characters")
-      .max(30, "Last Name must be at most 30 characters")
-      .matches(
-        /^[aA-zZ]+$/,
-        "Last Name and special characters are not allowed."
-      ),
-    email: Yup.string()
-      .required("Email is required.")
-      .email("Enter a valid email address."),
-    password: Yup.string()
-      .required("Passwrod is required.")
-      .min(6, "Passwrod must be at least 2 characters"),
-  });
+  const checkValidationDate = () => {
+    let current_data = new Date();
+    let picked_date = new Date(bYear, bMonth - 1, bDay);
+    let atleastThan14 = new Date(1970 + 14, 0, 1);
+    let noMoreThan70 = new Date(1970 + 70, 0, 1);
+    if (current_data - picked_date < atleastThan14) {
+      setDateError("under age you  are not 14");
+      return false;
+    } else if (current_data - picked_date > noMoreThan70) {
+      setDateError("you are more than 70");
+      return false;
+    } else {
+      setDateError("");
+      return true;
+    }
+  };
+
+  const checkValidationGender = () => {
+    if (gender === "") {
+      setGenderError("please fill gender Error");
+      return false;
+    } else {
+      setGenderError("");
+      return true;
+    }
+  };
+
+  const checkValidationForm = () => {
+    return {
+      first_name: Yup.string()
+        .required("First Name is required.")
+        .min(2, "First Name must be at least 2 characters")
+        .max(30, "First Name must be at most 30 characters")
+        .matches(
+          /^[aA-zZ]+$/,
+          "First Name and special characters are not allowed."
+        ),
+      last_name: Yup.string()
+        .required("Last Name is required.")
+        .min(2, "Last Name must be at least 2 characters")
+        .max(30, "Last Name must be at most 30 characters")
+        .matches(
+          /^[aA-zZ]+$/,
+          "Last Name and special characters are not allowed."
+        ),
+      email: Yup.string()
+        .required("Email is required.")
+        .email("Enter a valid email address."),
+      password: Yup.string()
+        .required("Passwrod is required.")
+        .min(6, "Passwrod must be at least 2 characters"),
+    };
+  };
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const registerSubmit = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/login/register`,
+        {
+          first_name,
+          last_name,
+          email,
+          password,
+          username: email,
+          bYear,
+          bMonth,
+          bDay,
+          gender,
+        }
+      );
+      const { message, ...rest } = data;
+      setSuccess(message);
+      setLoading(false);
+      setError("");
+      Cookies.set("user", JSON.stringify(rest));
+      dispatch({ type: "LOGIN", payload: rest });
+      navigate("/");
+    } catch (error) {
+      setLoading(false);
+      setError(error?.response?.data?.message);
+    }
+  };
+
+  const registervalidation = Yup.object(checkValidationForm());
 
   const [dateError, setDateError] = useState("");
   const [genderError, setGenderError] = useState("");
@@ -85,22 +153,8 @@ export default function RegisterForm() {
         }}
         validationSchema={registervalidation}
         onSubmit={() => {
-          let current_data = new Date();
-          let picked_date = new Date(bYear, bMonth - 1, bDay);
-          let atleastThan14 = new Date(1970 + 14, 0, 1);
-          let noMoreThan70 = new Date(1970 + 70, 0, 1);
-          if (current_data - picked_date < atleastThan14) {
-            setDateError("under age you  are not 14");
-          } else if (current_data - picked_date > noMoreThan70) {
-            setDateError("you are more than 70");
-          } else {
-            setDateError("");
-          }
-
-          if (gender === "") {
-            setGenderError("please fill gender Error");
-          } else {
-            setGenderError("");
+          if (checkValidationDate() && checkValidationGender()) {
+            registerSubmit();
           }
         }}
       >
@@ -135,75 +189,21 @@ export default function RegisterForm() {
                 <div className="login_wrapper_wrap_body_form_register_line_col_header">
                   Date of birth <div className="info_icon"></div>
                 </div>
-                <div className="login_wrapper_wrap_body_form_register_line_col_body">
-                  <select
-                    name="bDay"
-                    value={bDay}
-                    onChange={handlRegisterChange}
-                  >
-                    {days.map((item) => (
-                      <option key={item} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    name="bMonth"
-                    value={bMonth}
-                    onChange={handlRegisterChange}
-                  >
-                    {months.map((item) => (
-                      <option key={item} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
-                  <select name="bYear" onChange={handlRegisterChange}>
-                    {years.map((item) => (
-                      <option key={item} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                <DateOfBirthSelect
+                  bDay={bDay}
+                  bMonth={bMonth}
+                  bYear={bYear}
+                  handlRegisterChange={handlRegisterChange}
+                />
                 {dateError && <div className="input_error">{dateError}</div>}
               </div>
               <div className="login_wrapper_wrap_body_form_register_line_col">
                 <div className="login_wrapper_wrap_body_form_register_line_col_header">
                   Gender <div className="info_icon"></div>
                 </div>
-                <div className="login_wrapper_wrap_body_form_register_line_col_body">
-                  <label htmlFor="male">
-                    Male
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="male"
-                      value="male"
-                      onChange={handlRegisterChange}
-                    />
-                  </label>
-                  <label htmlFor="famale">
-                    Female
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="famale"
-                      value="famale"
-                      onChange={handlRegisterChange}
-                    />
-                  </label>
-                  <label htmlFor="custom">
-                    Custom
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="custom"
-                      value="custom"
-                      onChange={handlRegisterChange}
-                    />
-                  </label>
-                </div>
+
+                <GenderSelect handlRegisterChange={handlRegisterChange} />
+
                 {genderError && (
                   <div className="input_error">{genderError}</div>
                 )}
@@ -219,10 +219,18 @@ export default function RegisterForm() {
                 <div className="login_wrapper_wrap_body_form_register_line_register_body">
                   <div className="login_wrapper_wrap_body_form_register_line_register_body_btn">
                     <button className="btn_blue">Register</button>
+                    <ClipLoader
+                      loading={loading}
+                      size={20}
+                      aria-label="Loading Spinner"
+                      data-testid="loader"
+                    />
                   </div>
                 </div>
               </div>
             </div>
+            {error && <div className="error_text">{error}</div>}
+            {success && <div className="success_text">{success}</div>}
           </Form>
         )}
       </Formik>

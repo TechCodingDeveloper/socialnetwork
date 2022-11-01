@@ -81,8 +81,10 @@ exports.register = async (req, res) => {
     //   { id: user._id.toString() },
     //   "30m"
     // );
-
-    res.json(user);
+    res.json({
+      ...user._doc,
+      message: "Register Success please active your Email",
+    });
   } catch (e) {
     return res.status(500).json({ message: e });
   }
