@@ -26,6 +26,7 @@ header {
     }
 
     &__search {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -40,6 +41,42 @@ header {
         background: transparent;
         font-size: 15px;
         font-family: inherit;
+      }
+
+      &__menu {
+        position: absolute;
+        width: 245px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+        top: 50px;
+        left: 0px;
+        border-radius: 12px;
+        box-shadow: 0 12px 12px var(--shadow-1),
+          inset 0 0 0 0 var(--shadow-inset);
+        background: var(--bg-primary);
+        transition: all 0.2s;
+        z-index: 1;
+        min-height: 400px;
+        max-height: 70vh;
+        padding: 8px 20px 10px 20px;
+
+        &__recentSearch {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          font-size: 14px;
+          span:first-of-type {
+            font-size: 16px;
+            font-weight: bold;
+          }
+          span:last-of-type {
+            color: #1b74e4;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
@@ -77,6 +114,57 @@ header {
         padding: 1px 3px;
         font-size: 13px;
         color: white;
+      }
+    }
+  }
+
+  .header__right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    &__profile {
+      &__profilelink {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 19px;
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 10px;
+      }
+      & img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+    &__icon {
+      display: flex;
+      align-items: center;
+      &__item {
+        position: relative;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+        background: var(--bg-third);
+        cursor: pointer;
+        &__notification {
+          position: absolute;
+          top: 3px;
+          right: -5px;
+          background-color: #e41e3f;
+          border-radius: 50px;
+          padding: 1px 3px;
+          font-size: 10px;
+          color: white;
+        }
       }
     }
   }

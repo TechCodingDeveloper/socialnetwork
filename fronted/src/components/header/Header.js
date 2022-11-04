@@ -12,6 +12,8 @@ export default function Header() {
       <HeaderLeft />
 
       <HeaderMiddle />
+
+      <HeaderRight />
     </header>
   );
 }
