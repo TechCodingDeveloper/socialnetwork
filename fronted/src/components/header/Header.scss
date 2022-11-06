@@ -155,6 +155,166 @@ header {
         margin-right: 8px;
         background: var(--bg-third);
         cursor: pointer;
+        &__allmenu {
+          position: absolute;
+          width: 500px;
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 6px;
+          top: 50px;
+          right: 0px;
+          border-radius: 12px;
+          box-shadow: 0 12px 12px var(--shadow-1),
+            inset 0 0 0 0 var(--shadow-inset);
+          background: #e4e6eb;
+          transition: all 0.2s;
+          z-index: 1;
+          padding: 5px 10px 5px 20px;
+          &__header {
+            display: flex;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            align-items: center;
+            width: 100%;
+          }
+          &__body {
+            display: flex;
+            gap: 10px;
+            padding: 0px 5px 0px 5px;
+            width: 100%;
+
+            &__left {
+              border-radius: 10px;
+              min-height: 500px;
+              max-height: 70vh;
+              background-color: white;
+              width: 70%;
+              display: flex;
+              flex: 2;
+              padding: 10px;
+              flex-direction: column;
+              box-shadow: 0 12px 12px var(--shadow-1);
+              &__search {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background-color: var(--bg-forth);
+                padding: 10px 32px 10px 10px;
+                border-radius: 50px;
+                cursor: text;
+
+                &--input {
+                  outline: none;
+                  border: none;
+                  background: transparent;
+                  font-size: 15px;
+                  font-family: inherit;
+                }
+              }
+              &__list {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                overflow: hidden;
+                overflow-y: scroll;
+
+                &__group {
+                  &__title {
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+                    font-weight: bold;
+                    width: 100%;
+                  }
+                  &__item {
+                    border-radius: 10px;
+                    cursor: pointer;
+                    padding: 5px 10px 5px 0px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 100%;
+                    gap: 5px;
+
+                    &__pic {
+                      & img {
+                        width: 45px;
+                        height: 45px;
+                      }
+                    }
+                    &__text {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: flex-start;
+                      &__title {
+                        display: flex;
+                        font-size: 14px;
+                        font-weight: bold;
+                        width: 100%;
+                      }
+                      &__description {
+                        display: flex;
+                        font-size: 12px;
+                        width: 100%;
+                        color: var(--color-primary);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            &__right {
+              padding: 10px;
+              border-radius: 10px;
+              background-color: white;
+              width: 30%;
+              flex-direction: column;
+              box-shadow: 0 12px 12px var(--shadow-1);
+              &__header {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                font-size: 18px;
+                font-weight: bold;
+              }
+              &__body {
+                &__list {
+                  display: flex;
+                  padding: 10px 0px 10px 0px;
+                  align-items: center;
+                  flex-direction: column;
+                  width: 100%;
+                  &__item {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    gap: 10px;
+                    margin: 5px 0px;
+                    border-radius: 50px;
+                    &__pic {
+                      background: var(--bg-third);
+                      width: 45px;
+                      height: 45px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    }
+                    &__text {
+                      font-size: 12px;
+                      font-weight: bold;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         &__notification {
           position: absolute;
           top: 3px;

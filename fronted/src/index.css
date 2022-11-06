@@ -77,3 +77,12 @@ a {
 .hover2:hover {
   background: var(--bg-third);
 }
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #aeaeafa1;
+  border-radius: 5px;
+}
