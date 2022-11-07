@@ -15,8 +15,12 @@ export default function HeaderRight() {
   //#endregion
 
   const [isShowMenu, setIsShowMenu] = useState(false);
+  const [isUserMenu, setIsUserMenu] = useState(false);
   const onClickMenu = () => {
     setIsShowMenu(true);
+  };
+  const onClickUserMenu = () => {
+    setIsUserMenu(true);
   };
 
   const menuRef = useRef();
@@ -24,6 +28,10 @@ export default function HeaderRight() {
     setIsShowMenu(false);
   });
 
+  const userRef = useRef();
+  useClickOutSide(userRef, () => {
+    setIsUserMenu(false);
+  });
   return (
     <div className="header__right">
       <div className="header__right__profile">
@@ -51,9 +59,16 @@ export default function HeaderRight() {
           <Notifications />
           <span className="header__right__icon__item__notification">12</span>
         </div>
-        <div className="header__right__icon__item hover1">
+        <div
+          className="header__right__icon__item hover1"
+          onClick={onClickUserMenu}
+        >
           <ArrowDown />
-          <UserMenu />
+          {isUserMenu && (
+            <div ref={userRef}>
+              <UserMenu />
+            </div>
+          )}
         </div>
       </div>
     </div>

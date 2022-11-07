@@ -328,4 +328,29 @@ header {
       }
     }
   }
+
+  @media (max-width: 1299px) {
+    .header__middle > a:nth-child(5) {
+      display: none;
+    }
+  }
+  @media (max-width: 1154px) {
+    .header__middle > a:nth-child(4) {
+      display: none;
+    }
+  }
+  @media (max-width: 1120px) {
+    .header__right__profile {
+      display: none;
+    }
+  }
+  @media (max-width: 912px) {
+    .header__middle > a:nth-child(3) {
+      display: none;
+    }
+    .header__right__icon__item__allmenu {
+      top: 55px;
+      right: -145px;
+    }
+  }
 }
