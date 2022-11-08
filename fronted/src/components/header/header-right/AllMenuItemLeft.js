@@ -4,10 +4,13 @@ export default function AllMenuItemLeft({ menu, title }) {
       <div className="header__right__icon__item__allmenu__body__left__list__group__title">
         {title}
       </div>
-      {menu.map((m) => {
+      {menu.map((m, index) => {
         let img = `../../left/${m.icon}.png`;
         return (
-          <div className="header__right__icon__item__allmenu__body__left__list__group__item hover1">
+          <div
+            key={index}
+            className="header__right__icon__item__allmenu__body__left__list__group__item hover1"
+          >
             <div className="header__right__icon__item__allmenu__body__left__list__group__item__pic">
               <img src={img} alt="" />
             </div>
