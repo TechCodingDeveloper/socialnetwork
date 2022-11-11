@@ -16,6 +16,7 @@ export default function UserMenu() {
       {page === "MainMenu" && <MainMenu onSelectPage={selectPage} />}
       {page === "SettingAndPrivercy" && (
         <SettingAndPrivecy onSelectPage={selectPage} />
+
       )}
       {page === "HelpAndSupport" && (
         <HelpAndSupport onSelectPage={selectPage} />

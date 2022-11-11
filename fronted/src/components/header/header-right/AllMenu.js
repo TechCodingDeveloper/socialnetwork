@@ -7,19 +7,19 @@ export default function AllMenu() {
   const color = "#65676b";
 
   return (
-    <div className="header__right__icon__item__allmenu">
-      <div className="header__right__icon__item__allmenu__header">Menu</div>
-      <div className="header__right__icon__item__allmenu__body">
-        <div className="header__right__icon__item__allmenu__body__left">
-          <div className="header__right__icon__item__allmenu__body__left__search">
+    <div class="header__right__icon__item__allmenu">
+      <div class="header__right__icon__item__allmenu__header">Menu</div>
+      <div class="header__right__icon__item__allmenu__body">
+        <div class="header__right__icon__item__allmenu__body__left">
+          <div class="header__right__icon__item__allmenu__body__left__search">
             <Search color={color} />
             <input
               type="text"
               placeholder="Search Menu"
-              className="header__right__icon__item__allmenu__body__left__search--input"
+              class="header__right__icon__item__allmenu__body__left__search--input"
             />
           </div>
-          <div className="header__right__icon__item__allmenu__body__left__list scrollbar">
+          <div class="header__right__icon__item__allmenu__body__left__list scrollbar">
             <AllMenuItemLeft menu={menu.slice(0, 6)} title="Social" />
             <AllMenuItemLeft menu={menu.slice(6, 9)} title="Entertaiment" />
             <AllMenuItemLeft menu={menu.slice(9, 11)} title="Shopping" />
@@ -27,11 +27,11 @@ export default function AllMenu() {
             <AllMenuItemLeft menu={menu.slice(15, 17)} title="Professional" />
           </div>
         </div>
-        <div className="header__right__icon__item__allmenu__body__right">
-          <div className="header__right__icon__item__allmenu__body__right__header">
+        <div class="header__right__icon__item__allmenu__body__right">
+          <div class="header__right__icon__item__allmenu__body__right__header">
             Create
           </div>
-          <div className="header__right__icon__item__allmenu__body__right__body">
+          <div class="header__right__icon__item__allmenu__body__right__body">
             <AllMenuItemRight create={create} />
           </div>
         </div>

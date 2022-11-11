@@ -1,7 +1,7 @@
 export default function AllMenuItemLeft({ menu, title }) {
   return (
-    <div className="header__right__icon__item__allmenu__body__left__list__group">
-      <div className="header__right__icon__item__allmenu__body__left__list__group__title">
+    <div class="header__right__icon__item__allmenu__body__left__list__group">
+      <div class="header__right__icon__item__allmenu__body__left__list__group__title">
         {title}
       </div>
       {menu.map((m, index) => {
@@ -9,16 +9,16 @@ export default function AllMenuItemLeft({ menu, title }) {
         return (
           <div
             key={index}
-            className="header__right__icon__item__allmenu__body__left__list__group__item hover1"
+            class="header__right__icon__item__allmenu__body__left__list__group__item hover1"
           >
-            <div className="header__right__icon__item__allmenu__body__left__list__group__item__pic">
+            <div class="header__right__icon__item__allmenu__body__left__list__group__item__pic">
               <img src={img} alt="" />
             </div>
-            <div className="header__right__icon__item__allmenu__body__left__list__group__item__text">
-              <div className="header__right__icon__item__allmenu__body__left__list__group__item__text__title">
+            <div class="header__right__icon__item__allmenu__body__left__list__group__item__text">
+              <div class="header__right__icon__item__allmenu__body__left__list__group__item__text__title">
                 {m.name}
               </div>
-              <div className="header__right__icon__item__allmenu__body__left__list__group__item__text__description">
+              <div class="header__right__icon__item__allmenu__body__left__list__group__item__text__description">
                 {m.description}
               </div>
             </div>
