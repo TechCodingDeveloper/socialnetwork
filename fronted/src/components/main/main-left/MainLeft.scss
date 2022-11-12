@@ -1,17 +1,48 @@
 .main__left {
-  position: flex;
+  position: fixed;
   margin-top: 50px;
   left: 6px;
-  max-width: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   width: 300px;
   overflow-y: auto;
   color: var(--color-primery);
   padding: 15px 0;
+  & a {
+    width: 100%;
+  }
   &__list {
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
     padding: 5px 10px;
+    width: 100%;
+
+    &__item__more {
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      &__icon {
+        display: flex;
+        align-items: center;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: var(--bg-third);
+        & svg {
+          width: 100%;
+        }
+      }
+      &__title {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
   }
 }

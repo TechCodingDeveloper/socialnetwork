@@ -1,0 +1,38 @@
+.main__right {
+  position: fixed;
+  margin-top: 50px;
+  right: 6px;
+  max-height: 100vh;
+  overflow: hidden;
+  width: 300px;
+  overflow-y: auto;
+  color: var(--color-primery);
+  padding: 15px 0;
+  & a {
+    width: 100%;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 5px 10px;
+    width: 100%;
+
+    &__item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__header {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__context {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+    }
+  }
+}
