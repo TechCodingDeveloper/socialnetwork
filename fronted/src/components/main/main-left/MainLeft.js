@@ -55,7 +55,7 @@ export default function MainLeft() {
           </div>
         </div>
 
-        <div class="menu__splitter"></div>
+        <div className="menu__splitter"></div>
 
         <Link to="/profile">
           <MainLink src="../../images/ytb.png" title="My Youtube" />

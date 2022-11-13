@@ -33,15 +33,18 @@ export default function HeaderRight() {
     setIsUserMenu(false);
   });
   return (
-    <div class="header__right">
-      <div class="header__right__profile">
-        <Link to="/profile" class="header__right__profile__profilelink hover1">
+    <div className="header__right">
+      <div className="header__right__profile">
+        <Link
+          to="/profile"
+          className="header__right__profile__profilelink hover1"
+        >
           <img src={user?.picture} alt="" />
           <span>{user?.first_name}</span>
         </Link>
       </div>
-      <div class="header__right__icon">
-        <div class="header__right__icon__item hover1" onClick={onClickMenu}>
+      <div className="header__right__icon">
+        <div className="header__right__icon__item hover1" onClick={onClickMenu}>
           <Menu />
           {isShowMenu && (
             <div ref={menuRef}>
@@ -49,14 +52,17 @@ export default function HeaderRight() {
             </div>
           )}
         </div>
-        <div class="header__right__icon__item hover1">
+        <div className="header__right__icon__item hover1">
           <Messenger />
         </div>
-        <div class="header__right__icon__item hover1">
+        <div className="header__right__icon__item hover1">
           <Notifications />
-          <span class="header__right__icon__item__notification">12</span>
+          <span className="header__right__icon__item__notification">12</span>
         </div>
-        <div class="header__right__icon__item hover1" onClick={onClickUserMenu}>
+        <div
+          className="header__right__icon__item hover1"
+          onClick={onClickUserMenu}
+        >
           <ArrowDown />
           {isUserMenu && (
             <div ref={userRef}>

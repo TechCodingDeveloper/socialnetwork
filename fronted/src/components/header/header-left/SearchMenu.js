@@ -18,17 +18,17 @@ export default function SearchMenu() {
   });
 
   return (
-    <div class="header__left__search" onClick={onInputClick}>
+    <div className="header__left__search" onClick={onInputClick}>
       <Search color={color} />
       <input
         type="text"
         placeholder="Search Socialnetwork"
-        class="header__left__search--input"
+        className="header__left__search--input"
       />
 
       {isShowHeaderMenu && (
-        <div ref={headerMenuElement} class="header__left__search__menu">
-          <div class="header__left__search__menu__recentSearch">
+        <div ref={headerMenuElement} className="header__left__search__menu">
+          <div className="header__left__search__menu__recentSearch">
             <span>recent search</span>
             <span>Edit</span>
           </div>

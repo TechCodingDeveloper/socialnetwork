@@ -4,7 +4,7 @@ import Stories from "./stories/stories";
 import "./Main.scss";
 export default function Main() {
   return (
-    <div class="main">
+    <div className="main">
       <MainLeft />
       <Stories />
       <MainRight />

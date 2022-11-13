@@ -1,13 +1,11 @@
 .main__left {
   position: fixed;
-  margin-top: 50px;
   left: 6px;
   max-height: 100vh;
   overflow: hidden;
   width: 300px;
   overflow-y: auto;
   color: var(--color-primery);
-  padding: 15px 0;
   & a {
     width: 100%;
   }

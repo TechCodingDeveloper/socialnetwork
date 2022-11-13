@@ -1,15 +1,65 @@
 .story {
-  
   &__middle {
     margin: auto;
     margin-top: 57px;
     width: 50vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     &__row {
+      margin: 10px 0px 10px 0px;
       display: flex;
       align-items: center;
+      gap: 20px;
     }
   }
+}
+
+.card__story__new {
+  box-shadow: 0 1px 2px var(--shadow-1);
+  transition: 0.3s;
+  width: 100px;
+  border-radius: 10px;
+  height: 190px;
+  cursor: pointer;
+  &__image {
+    & img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      object-fit: cover;
+      height: 150px;
+    }
+  }
+  &__body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    &__button {
+      position: absolute;
+      top: -30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--blue-color);
+      border: 5px solid white;
+      border-radius: 50%;
+      color: var(--bg-primary);
+    }
+
+    &__title {
+      margin-top: 5px;
+      font-size: 16px;
+    }
+  }
+}
+
+.card__story__new:hover {
+  transform: scale(1.1);
 }

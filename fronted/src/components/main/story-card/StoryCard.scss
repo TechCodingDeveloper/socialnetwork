@@ -1,0 +1,50 @@
+.card__story {
+  position: relative;
+  box-shadow: 0 1px 2px var(--shadow-1);
+  transition: 0.3s;
+  width: 100px;
+  border-radius: 10px;
+  height: 190px;
+  cursor: pointer;
+  &__image {
+    width: 100%;
+    height: 100%;
+    & img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  &__profile {
+    display: none;
+  }
+}
+
+.card__story:hover {
+  transform: scale(1.1);
+  .card__story__profile {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    bottom: 5px;
+    padding: 5px;
+    align-items: center;
+    &__image {
+      & img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    &__name {
+      color: white;
+      word-break: keep-all;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+}

@@ -11,7 +11,7 @@ export default function MainRight() {
         <div className="main__right__list__item">
           <div className="main__right__list__item__header">Sponsored</div>
         </div>
-        <div class="menu__splitter"></div>
+        <div className="menu__splitter"></div>
         <div className="main__right__list__item">
           <div className="main__right__list__item__header">Contacts</div>
           <div className="main__right__list__item__context">
