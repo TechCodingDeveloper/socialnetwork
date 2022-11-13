@@ -37,9 +37,18 @@ export default function MainLeft() {
         })}
 
         <div className="main__left__list__item__more hover1" onClick={SeeMore}>
-          <div className="main__left__list__item__more__icon">
-            {more < 9 && <ArrowDown1 />}
-          </div>
+          {more < 9 && (
+            <div className="main__left__list__item__more__icon">
+              <ArrowDown1 />
+            </div>
+          )}
+
+          {more > 8 && (
+            <div className="main__left__list__item__more__icon flipUp">
+              <ArrowDown1 />
+            </div>
+          )}
+
           <div className="main__left__list__item__more__title">
             {more > 8 && <span>Show Less</span>}
             {more < 9 && <span>Show More</span>}

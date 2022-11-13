@@ -1,0 +1,15 @@
+.story {
+  
+  &__middle {
+    margin: auto;
+    margin-top: 57px;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__row {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
