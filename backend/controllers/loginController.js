@@ -1,10 +1,6 @@
 const bcrypt = require("bcrypt");
 const { generateToken } = require("../helpers/tokens");
 
-exports.home = (req, res) => {
-  res.send("welcome from login");
-};
-
 const { validateEmail, validateLength } = require("../helpers/validation");
 const UserDocument = require("../models/userDocument");
 
