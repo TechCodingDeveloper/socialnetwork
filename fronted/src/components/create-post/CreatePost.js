@@ -17,7 +17,7 @@ export default function CreatePost() {
           />
         </div>
       </div>
-      <div class="menu__splitter"></div>
+      <div className="menu__splitter"></div>
       <div className="Post__footer">
         <div className="Post__footer__item hover1">
           <div className="Post__footer__item__image">

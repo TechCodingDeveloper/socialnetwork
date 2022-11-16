@@ -8,3 +8,11 @@
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+.small_circle {
+  border-radius: 50%;
+  background: var(--bg-third);
+  padding: 5px;
+  text-align: center;
+  display: flex;
+}

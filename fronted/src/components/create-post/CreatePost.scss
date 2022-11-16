@@ -39,13 +39,13 @@
   }
   &__footer {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
     justify-content: space-around;
     &__item {
       padding: 5px;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 8px;
       justify-content: center;
       border-radius: 20px;
@@ -54,6 +54,7 @@
       &__image {
       }
       &__text {
+        font-size: 14px;
         font-weight: 600;
       }
     }

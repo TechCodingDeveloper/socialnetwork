@@ -1,5 +1,6 @@
 import Header from "../../components/header/Header";
 import Main from "../../components/main/Main";
+import ActivateForm from "../activate/ActivateForm";
 import "./Home.scss";
 
 export default function Home() {
