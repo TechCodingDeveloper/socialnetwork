@@ -85,7 +85,32 @@
         color: var(--color-primary);
       }
     }
-    &__color {
+    &__emoji {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      &__btn {
+        & i {
+          cursor: pointer;
+        }
+        & i:hover {
+          filter: invert(80%);
+        }
+        &__menu {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(100%, -90%);
+        }
+      }
+      &__color {
+        & img {
+          width: 39px;
+          cursor: pointer;
+        }
+      }
     }
   }
   .post__box__footer {
