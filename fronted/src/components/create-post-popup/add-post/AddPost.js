@@ -2,14 +2,19 @@ import Photo from "../../../svg/photo";
 import Feeling from "../../../svg/feeling";
 import Dots from "../../../svg/dots";
 import "./AddPost.scss";
-export default function AddPost() {
+export default function AddPost({ onClick }) {
   return (
     <div className="add__psot">
       <div className="add__psot__text">
         <input type="text" placeholder="Add to your post" />
       </div>
       <div className="add__psot__icon">
-        <div className="add__psot__icon__item">
+        <div
+          className="add__psot__icon__item"
+          onClick={() => {
+            onClick("image");
+          }}
+        >
           <Photo color="#45bd62" />
         </div>
         <div className="add__psot__icon__item">

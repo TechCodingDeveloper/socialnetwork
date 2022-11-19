@@ -1,28 +1,20 @@
 import "./CreatePostPopup.scss";
 import { useSelector } from "react-redux";
-import { useEffect, useState, useRef } from "react";
-import EmojiPicker from "./emoji-picker/EmojiPicker.js";
+
 import AddPost from "./add-post/AddPost";
+import PostPreview from "./post-preview/PostPreview";
+import { useState } from "react";
+import ImagePreview from "./image-preview/ImagePreview";
 
 export default function CreatePostPopup() {
   const { user } = useSelector((state) => ({ ...state }));
-  const [text, setText] = useState("");
 
-  const textRef = useRef(null);
-  const [cursorPosition, setCursorPosition] = useState();
+  const [show, setShow] = useState(null);
 
-  useEffect(() => {
-    textRef.current.selectionEnd = cursorPosition;
-  }, [cursorPosition]);
-
-  const handleEmoji = ({ emoji }) => {
-    const ref = textRef.current;
-    ref.focus();
-    const start = text.substring(0, ref.selectionStart);
-    const end = text.substring(ref.selectionStart);
-    const newText = start + emoji + end;
-    setText(newText);
-    setCursorPosition(start.length + emoji.length);
+  const handllePost = (name) => {
+    if (name) {
+      setShow(name);
+    }
   };
 
   return (
@@ -54,27 +46,12 @@ export default function CreatePostPopup() {
               </div>
             </div>
           </div>
-          <div className="post__box__body__text">
-            <textarea
-              ref={textRef}
-              maxLength={100}
-              value={text}
-              placeholder={` What's on your mind,${user.first_name}?`}
-              onChange={(e) => setText(e.target.value)}
-            ></textarea>
-          </div>
-          <div className="post__box__body__emoji">
-            <div className="post__box__body__emoji__color">
-              <img src="../../../icons/colorful.png" alt="" />
-            </div>
-            <div className="post__box__body__emoji__btn">
-              <EmojiPicker onEmojiClick={handleEmoji} />
-            </div>
-          </div>
+          <PostPreview user={user} mode={show ? true : false} />
+          {show && <ImagePreview />}
         </div>
         <div className="post__box__footer">
           <div className="post__box__footer__post">
-            <AddPost />
+            <AddPost onClick={handllePost} />
           </div>
           <div className="post__box__footer__button">
             <button>Post</button>

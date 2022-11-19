@@ -65,51 +65,6 @@
         }
       }
     }
-    &__text {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      & Textarea {
-        outline: none;
-        border: none;
-        resize: none;
-        padding: 5px 15px;
-        margin-bottom: 10px;
-        width: 470px;
-        margin-left: 1px;
-        font-family: inherit;
-        font-size: 24px;
-        background: var(--bg-primary);
-        color: var(--color-primary);
-      }
-    }
-    &__emoji {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      &__btn {
-        & i {
-          cursor: pointer;
-        }
-        & i:hover {
-          filter: invert(80%);
-        }
-        &__menu {
-          position: absolute;
-          top: 0;
-          right: 0;
-          transform: translate(100%, -90%);
-        }
-      }
-      &__color {
-        & img {
-          width: 39px;
-          cursor: pointer;
-        }
-      }
-    }
   }
   .post__box__footer {
     display: flex;
