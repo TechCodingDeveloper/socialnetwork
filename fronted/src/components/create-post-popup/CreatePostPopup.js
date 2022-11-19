@@ -1,12 +1,13 @@
 import "./CreatePostPopup.scss";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import Picker from "emoji-picker-react";
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
+import EmojiPicker from "./emoji-picker/EmojiPicker.js";
+import AddPost from "./add-post/AddPost";
+
 export default function CreatePostPopup() {
   const { user } = useSelector((state) => ({ ...state }));
   const [text, setText] = useState("");
-  const [picker, setPicker] = useState(false);
+
   const textRef = useRef(null);
   const [cursorPosition, setCursorPosition] = useState();
 
@@ -23,6 +24,7 @@ export default function CreatePostPopup() {
     setText(newText);
     setCursorPosition(start.length + emoji.length);
   };
+
   return (
     <div className="blur">
       <div className="post__box">
@@ -66,21 +68,17 @@ export default function CreatePostPopup() {
               <img src="../../../icons/colorful.png" alt="" />
             </div>
             <div className="post__box__body__emoji__btn">
-              <i
-                className="emoji_icon_large"
-                onClick={() => {
-                  setPicker((prev) => !prev);
-                }}
-              ></i>
-              <div className="post__box__body__emoji__btn__menu">
-                {picker && <Picker onEmojiClick={handleEmoji} />}
-              </div>
+              <EmojiPicker onEmojiClick={handleEmoji} />
             </div>
           </div>
         </div>
         <div className="post__box__footer">
-          <div className="post__box__footer__post"></div>
-          <div className="post__box__footer__button"></div>
+          <div className="post__box__footer__post">
+            <AddPost />
+          </div>
+          <div className="post__box__footer__button">
+            <button>Post</button>
+          </div>
         </div>
       </div>
     </div>

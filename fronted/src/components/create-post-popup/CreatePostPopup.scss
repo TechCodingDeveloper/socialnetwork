@@ -28,14 +28,13 @@
   }
 
   &__body {
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     &__profile {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 5px;
       &__image {
         img {
           border-radius: 50%;
@@ -90,7 +89,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 15px;
       &__btn {
         & i {
           cursor: pointer;
@@ -114,9 +112,25 @@
     }
   }
   .post__box__footer {
+    display: flex;
+    flex-direction: column;
     &__post {
     }
     &__button {
+      margin: 5px;
+      display: flex;
+      flex: 1;
+      & button {
+        flex: 1;
+        padding: 10px;
+        outline: none;
+        border: none;
+        background: var(--blue-color);
+        color: var(--bg-primary);
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 5px;
+      }
     }
   }
 }
