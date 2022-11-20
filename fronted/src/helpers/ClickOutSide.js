@@ -4,7 +4,7 @@ export default function useClickOutSide(ref, fun) {
   useEffect(() => {
     const listener = (e) => {
       if (!ref.current || ref.current.contains(e.target)) return;
-      fun();
+      if (fun) fun();
     };
     document.addEventListener("mousedown", listener);
     document.addEventListener("touchstart", listener);

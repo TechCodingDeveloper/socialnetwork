@@ -9,7 +9,7 @@ import ImagePreview from "./image-preview/ImagePreview";
 export default function CreatePostPopup() {
   const { user } = useSelector((state) => ({ ...state }));
 
-  const [show, setShow] = useState(null);
+  const [show, setShow] = useState("true");
 
   const handllePost = (name) => {
     if (name) {
