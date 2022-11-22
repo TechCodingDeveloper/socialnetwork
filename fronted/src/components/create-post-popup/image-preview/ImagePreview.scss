@@ -8,23 +8,27 @@
     width: calc(100% - 5px);
     border-radius: 5px;
     padding: 10px 10px 10px 10px;
+
     &__box {
+      overflow: hidden;
       background-color: var(--bg-third);
       height: 100%;
       width: 100%;
       position: relative;
       &__close {
+        cursor: pointer;
         position: absolute;
         width: 30px;
         height: 30px;
         top: 5px;
-        right: 5px;
+        right: 25px;
         & .small_circle {
           background-color: var(--bg-primary);
         }
       }
 
       &__body {
+        cursor: pointer;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -40,6 +44,39 @@
         &__description {
           font-size: 10px;
           color: var(--color-secondary);
+        }
+      }
+
+      &__images {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        &__box {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          &__left {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            background-color: var(--bg-primary);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+          }
+          &__right {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            background-color: var(--bg-primary);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -92,9 +129,14 @@
   }
 }
 
-.preview1 img {
+.preview1 {
   height: 100%;
   width: 100%;
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .preview2 {
@@ -143,4 +185,47 @@
   & img:nth-child(1) {
     grid-column: 1/4;
   }
+}
+
+.preview5 {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  & img {
+    width: 100%;
+    height: 137px;
+    object-fit: cover;
+    grid-column: auto / span 2;
+  }
+
+  & img:nth-child(1) {
+    grid-column: auto / span 3;
+  }
+  & img:nth-child(2) {
+    grid-column: auto / span 3;
+  }
+}
+
+.preview6 {
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(2, 1fr);
+
+  & img {
+    width: 100%;
+    height: 137px;
+    object-fit: cover;
+  }
+}
+
+.singular_grid img:nth-child(1) {
+  grid-column: 1/3;
 }
