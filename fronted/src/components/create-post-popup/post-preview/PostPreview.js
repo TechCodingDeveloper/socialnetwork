@@ -1,6 +1,7 @@
 import EmojiPicker from "../emoji-picker/EmojiPicker.js";
 import { useEffect, useState, useRef } from "react";
 import "./PostPreview.scss";
+import PostImageBackground from "../post-image-background/PostImageBackground.js";
 
 export default function PostPreview({ user, mode }) {
   const [text, setText] = useState("");
@@ -26,7 +27,7 @@ export default function PostPreview({ user, mode }) {
       <div className={"post__box__body__text" + (mode ? " small" : "")}>
         <textarea
           ref={textRef}
-          maxLength={100}
+          maxLength={250}
           value={text}
           placeholder={` What's on your mind,${user.first_name}?`}
           onChange={(e) => setText(e.target.value)}
@@ -34,7 +35,7 @@ export default function PostPreview({ user, mode }) {
       </div>
       <div className={"post__box__body__emoji" + (mode ? " small" : "")}>
         <div className="post__box__body__emoji__color">
-          <img src="../../../icons/colorful.png" alt="" />
+          <PostImageBackground bgref={textRef} />
         </div>
         <div className="post__box__body__emoji__btn">
           <EmojiPicker onEmojiClick={handleEmoji} />

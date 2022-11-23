@@ -16,6 +16,12 @@
     background: var(--bg-primary);
     color: var(--color-primary);
   }
+  & .post_background {
+    height: 360px;
+    width: 100%;
+    background-size: cover;
+    text-align: center;
+  }
   &.small {
     & Textarea {
       font-size: 14px;

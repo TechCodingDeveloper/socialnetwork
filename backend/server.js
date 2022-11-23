@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const consolColor = require("chalk");
+const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
 const { readdirSync } = require("fs");
 const { options } = require("./routes-options");
@@ -17,6 +18,12 @@ app.use(express.json());
 
 //Implement CORS
 app.use(cors(options));
+
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
 
 //Routes
 readdirSync("./routes").map((r) => app.use("/", require(`./routes/${r}`)));
