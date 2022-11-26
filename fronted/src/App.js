@@ -16,7 +16,7 @@ function App() {
           <Route path="/profile" element={<Profile />} exact />
           <Route path="/activate/:token" element={<Activate />} exact />
         </Route>
-        <Route element={<NotLoginInRoutes />}>
+        <Route element={<NotLoginInRoutes />}> 
           <Route path="/login" element={<Login />} exact />
           <Route path="/register" element={<Register />} exact />
         </Route>
