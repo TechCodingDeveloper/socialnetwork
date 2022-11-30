@@ -1,6 +1,7 @@
 import "./ImagePreview.scss";
 import { useRef, useState } from "react";
-export default function ImagePreview() {
+import { useEffect } from "react";
+export default function ImagePreview({ onImage }) {
   const imageInputRef = useRef(null);
 
   const [images, setImages] = useState(null);
@@ -20,6 +21,14 @@ export default function ImagePreview() {
   const cleanImages = () => {
     setImages(null);
   };
+
+  useEffect(() => {
+    if (images && images.length > 0) {
+      onImage(images);
+    } else {
+      onImage(null);
+    }
+  }, [images]);
 
   const handleImages = (e) => {
     if (images == null) setImages([]);

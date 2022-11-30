@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
+
 export const createPost = async (
   type,
   background,
@@ -28,3 +30,4 @@ export const createPost = async (
     return error.response.data.message;
   }
 };
+
