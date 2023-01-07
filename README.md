@@ -1,7 +1,7 @@
 
 ## Authors
 Mohammadreza Nozari (Email: mohammadreza.nozari@yahoo.com)
-- [@linkedin](https://www.linkedin.com/in/mohammadreza-nozari/)
+- [@linkedin](https://www.linkedin.com/in/mrnozari/)
 
 
 ## 🚀 About Me
@@ -15,19 +15,19 @@ workplaces, from a company of three to large organizations with cross-functional
 
 
 
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/1.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/2.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/3.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/4.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/5.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/6.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/7.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/8.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/9.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/10.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/11.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/12.png)
-![Logo](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/13.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/1.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/2.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/3.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/4.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/5.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/6.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/7.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/8.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/9.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/10.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/11.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/12.png)
+![Image](https://raw.githubusercontent.com/devnozari/socialnetwork/develop/images/13.png)
 
 
 
